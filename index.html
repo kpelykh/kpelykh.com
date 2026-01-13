@@ -514,6 +514,278 @@
             margin-bottom: 0.25rem;
         }
 
+        /* Testimonials Section */
+        .testimonials-wrapper {
+            position: relative;
+        }
+
+        .testimonials-grid {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) var(--bg-tertiary);
+        }
+
+        .testimonials-grid::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .testimonials-grid::-webkit-scrollbar-track {
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+        }
+
+        .testimonials-grid::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 3px;
+        }
+
+        .testimonial-card {
+            flex: 0 0 calc(50% - 1rem);
+            min-width: calc(50% - 1rem);
+            padding: 3rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            position: relative;
+            transition: all 0.4s ease;
+            scroll-snap-align: start;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1.5rem;
+            left: 2rem;
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 5rem;
+            line-height: 1;
+            color: var(--accent);
+            opacity: 0.2;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--accent);
+        }
+
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--bg-primary);
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .scroll-btn:hover {
+            background: var(--accent);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .scroll-btn:hover svg {
+            stroke: var(--bg-primary);
+        }
+
+        .scroll-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--accent);
+            transition: stroke 0.3s ease;
+        }
+
+        .scroll-btn.scroll-left {
+            left: -25px;
+        }
+
+        .scroll-btn.scroll-right {
+            right: -25px;
+        }
+
+        .scroll-btn.scroll-right svg {
+            animation: scrollHintRight 1.5s ease-in-out infinite;
+        }
+
+        @keyframes scrollHintRight {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(4px); }
+        }
+
+        /* Clients Section */
+        .clients {
+            background: var(--bg-secondary);
+        }
+
+        .clients-intro {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .client-card {
+            padding: 2rem 1.5rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .client-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .client-logo {
+            height: 40px;
+            width: auto;
+            max-width: 160px;
+            margin-bottom: 1rem;
+            opacity: 0.85;
+            filter: brightness(0) invert(1);
+            transition: opacity 0.3s ease;
+            object-fit: contain;
+        }
+
+        .client-logo-small {
+            height: 30px;
+            width: auto;
+            max-width: 160px;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            opacity: 0.85;
+            filter: brightness(0) invert(1);
+            transition: opacity 0.3s ease;
+            object-fit: contain;
+        }
+
+        .client-card:hover .client-logo {
+            opacity: 1;
+        }
+
+        .client-name {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 2.25rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .client-role {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .client-duration {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+        }
+
+        @media (max-width: 968px) {
+            .scroll-btn {
+                width: 40px;
+                height: 40px;
+            }
+
+            .scroll-btn.scroll-left {
+                left: 10px;
+            }
+
+            .scroll-btn.scroll-right {
+                right: 10px;
+            }
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1rem;
+            color: var(--bg-primary);
+            font-weight: 500;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .author-role {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .linkedin-badge {
+            margin-left: auto;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .linkedin-badge:hover {
+            color: var(--accent);
+        }
+
+        .linkedin-badge svg {
+            width: 20px;
+            height: 20px;
+        }
+
         /* Projects Section */
         .projects-grid {
             display: grid;
@@ -773,6 +1045,11 @@
                 grid-template-columns: 1fr;
             }
 
+            .testimonial-card {
+                flex: 0 0 85%;
+                min-width: 85%;
+            }
+
             .nav-links {
                 display: none;
             }
@@ -810,6 +1087,7 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#clients">Clients</a></li>
                 <li><a href="#work">Work</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -855,12 +1133,13 @@
                     <p>
                         <span class="highlight">From Big Data pipelines to neural search architectures</span> —
                         my journey has always been about making information accessible. Based in New York,
-                        I've spent over a decade building systems that help people find what they're looking for.
+                        I've spent nearly two decades building systems that help people find what they're looking for.
                     </p>
                     <p>
-                        Today, I focus on the intersection of <span class="highlight">search technology and artificial intelligence</span>,
-                        creating systems that understand context, intent, and the subtle nuances of human queries.
-                        My work spans from low-level Lucene optimizations to high-level AI model integration.
+                        With dual Master's degrees in <span class="highlight">Computer Science and Linguistics</span>,
+                        I bring a unique perspective to search technology — understanding both the engineering challenges
+                        and the nuances of human language. My work spans from low-level Lucene codec optimizations
+                        to integrating LLMs for semantic understanding.
                     </p>
                     <p>
                         I believe the future of search isn't about matching keywords —
@@ -871,19 +1150,19 @@
                 <div class="about-stats fade-in stagger-2">
                     <div class="stat">
                         <div class="stat-value">15+</div>
-                        <div class="stat-label">Years Experience</div>
+                        <div class="stat-label">Projects Delivered</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-value">1</div>
-                        <div class="stat-label">US Patent</div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">US Patents</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-value">10K+</div>
+                        <div class="stat-value">3K+</div>
                         <div class="stat-label">GitHub Stars</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-value">NYC</div>
-                        <div class="stat-label">Based In</div>
+                        <div class="stat-value">20</div>
+                        <div class="stat-label">Years Experience</div>
                     </div>
                 </div>
             </div>
@@ -916,6 +1195,22 @@
 
                 <div class="skill-card fade-in stagger-2">
                     <span class="skill-icon">◈</span>
+                    <h3 class="skill-name">Big Data</h3>
+                    <p class="skill-desc">
+                        Building data processing pipelines at massive scale.
+                        ETL workflows handling terabytes of data.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Spark</span>
+                        <span class="skill-tag">Kafka</span>
+                        <span class="skill-tag">Hadoop</span>
+                        <span class="skill-tag">Cassandra</span>
+                        <span class="skill-tag">HBase</span>
+                    </div>
+                </div>
+
+                <div class="skill-card fade-in stagger-3">
+                    <span class="skill-icon">◆</span>
                     <h3 class="skill-name">AI & Machine Learning</h3>
                     <p class="skill-desc">
                         Integrating neural models into search pipelines. Semantic search,
@@ -924,39 +1219,72 @@
                     <div class="skill-tags">
                         <span class="skill-tag">Vector Search</span>
                         <span class="skill-tag">Embeddings</span>
+                        <span class="skill-tag">TensorFlow</span>
                         <span class="skill-tag">LLMs</span>
-                        <span class="skill-tag">RAG</span>
-                    </div>
-                </div>
-
-                <div class="skill-card fade-in stagger-3">
-                    <span class="skill-icon">◆</span>
-                    <h3 class="skill-name">Backend Engineering</h3>
-                    <p class="skill-desc">
-                        Building robust, scalable systems that handle millions of queries.
-                        Strong foundation in distributed systems.
-                    </p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Kotlin</span>
-                        <span class="skill-tag">Go</span>
                     </div>
                 </div>
 
                 <div class="skill-card fade-in stagger-4">
                     <span class="skill-icon">◊</span>
-                    <h3 class="skill-name">Infrastructure</h3>
+                    <h3 class="skill-name">Backend & Infrastructure</h3>
                     <p class="skill-desc">
-                        Containerization, orchestration, and cloud-native architectures.
+                        Scalable distributed systems, containerization, and cloud-native architectures.
                         Creator of docker-java library.
                     </p>
                     <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Scala</span>
                         <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
                         <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Spring</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="clients" id="clients">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Clients</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <p class="clients-intro fade-in stagger-1">
+                Over 15 consulting engagements with industry leaders in finance, food delivery, enterprise software, and networking infrastructure.
+            </p>
+
+            <div class="clients-grid fade-in stagger-2">
+                <div class="client-card">
+                    <img src="img/Daydream_Logo_Light.svg" alt="DayDream.ing" class="client-logo-small">
+                    <div class="client-role">AI Search Expert</div>
+                    <div class="client-duration">Ongoing</div>
+                </div>
+                <div class="client-card">
+                    <img src="img/grubhub-vector-logo.svg" alt="GrubHub" class="client-logo-small">
+                    <div class="client-role">Search & Big Data</div>
+                    <div class="client-duration">8 years</div>
+                </div>
+                <div class="client-card">
+                    <img src="img/bloomberg_Logo.svg" alt="Bloomberg" class="client-logo-small">
+                    <div class="client-role">Search & Big Data</div>
+                    <div class="client-duration">2 years</div>
+                </div>
+                <div class="client-card">
+                    <div class="client-name">Tradefora</div>
+                    <div class="client-role">Co-Founder, CTO</div>
+                    <div class="client-duration">10 years</div>
+                </div>
+                <div class="client-card">
+                    <div class="client-name">Zettaset</div>
+                    <div class="client-role">Platform Architect</div>
+                    <div class="client-duration">2.5 years</div>
+                </div>
+                <div class="client-card">
+                    <img src="img/Juniper_Networks_logo.svg" alt="Juniper Networks" class="client-logo">
+                    <div class="client-role">Full Stack</div>
+                    <div class="client-duration">5 months</div>
                 </div>
             </div>
         </div>
@@ -965,7 +1293,7 @@
     <section class="current-work" id="work">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="section-number">03</span>
+                <span class="section-number">04</span>
                 <h2 class="section-title">Current Work</h2>
                 <div class="section-line"></div>
             </div>
@@ -1008,10 +1336,130 @@
         </div>
     </section>
 
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-number">05</span>
+                <h2 class="section-title">What People Say</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="testimonials-wrapper fade-in stagger-1">
+                <button class="scroll-btn scroll-left" id="scrollLeft" aria-label="Scroll left">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button class="scroll-btn scroll-right" id="scrollRight" aria-label="Scroll right">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+                <div class="testimonials-grid" id="testimonialsGrid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            I had the great pleasure of managing Konstantin for over two years. He's one of the most talented engineers I've had the fortune of working with in my career. No matter how big or complex the task, Konstantin would take it on with a humble 'sure' and consistently deliver high-quality work on time. He has a deep understanding of search technologies, especially Elasticsearch and Lucene.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ES</div>
+                            <div class="author-info">
+                                <span class="author-name">Elad Sheinfeld</span>
+                                <span class="author-role">Former Manager, GrubHub</span>
+                            </div>
+                            <a href="https://www.linkedin.com/in/kpelykh/" target="_blank" class="linkedin-badge" title="View on LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Konstantin and I worked on a number of projects over the last two years ranging from building search systems to job schedulers. He is very enterprising and has the prized skill of solving ambiguous problems. He is equally good at working independently as well as in close collaboration. He comes with my highest recommendations.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SG</div>
+                            <div class="author-info">
+                                <span class="author-name">Skand Gupta</span>
+                                <span class="author-role">Former Manager, Bloomberg</span>
+                            </div>
+                            <a href="https://www.linkedin.com/in/kpelykh/" target="_blank" class="linkedin-badge" title="View on LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Konstantin is perhaps one of the best programmers I have ever worked with. He's one of the few developers that have a full understanding of programming and computing fundamentals and not just language nuisances. While he was at Zettaset we worked closely together to develop groundbreaking distributed security constructs and frameworks.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">BC</div>
+                            <div class="author-info">
+                                <span class="author-name">Brian Christian</span>
+                                <span class="author-role">Former CEO, Zettaset</span>
+                            </div>
+                            <a href="https://www.linkedin.com/in/kpelykh/" target="_blank" class="linkedin-badge" title="View on LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Konstantin is a hands down 10x engineer. He has the ability to understand crux of the business problem and come up with a thorough and solid solution. Konstantin is one of the few engineers that has solid understanding of Big Data, Search and Java/J2EE technologies. He never gives up until he finds root cause to a problem.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AK</div>
+                            <div class="author-info">
+                                <span class="author-name">Anil Kona</span>
+                                <span class="author-role">Former Manager, Xactly</span>
+                            </div>
+                            <a href="https://www.linkedin.com/in/kpelykh/" target="_blank" class="linkedin-badge" title="View on LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Konstantin is one of the best software engineers I'd ever worked with. He's a true scientist when it comes to complex algorithms, his ability to research and implement best solution possible is simply amazing, and his work ethics and dedication is absolutely exemplary. It was a true pleasure and a privilege working with him!
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AS</div>
+                            <div class="author-info">
+                                <span class="author-name">Arthur Svider</span>
+                                <span class="author-role">Head of Engineering, Bizzy</span>
+                            </div>
+                            <a href="https://www.linkedin.com/in/kpelykh/" target="_blank" class="linkedin-badge" title="View on LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Konstantin's approach to the project was impressive and his focus to understand the detail of our business operations gave us confidence. The delivery materialized on time and was deployed with his help, advice and oversight. His genuine interest in the project is refreshing — a rare trait indeed in the formal business world.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">OH</div>
+                            <div class="author-info">
+                                <span class="author-name">Omar Hamwi</span>
+                                <span class="author-role">Client, Juniper Networks</span>
+                            </div>
+                            <a href="https://www.linkedin.com/in/kpelykh/" target="_blank" class="linkedin-badge" title="View on LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="projects" id="projects">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="section-number">04</span>
+                <span class="section-number">06</span>
                 <h2 class="section-title">Notable Projects</h2>
                 <div class="section-line"></div>
             </div>
@@ -1042,11 +1490,31 @@
                 </div>
 
                 <div class="project-card fade-in stagger-2">
+                    <a href="https://github.com/GiraffaFS/giraffa" target="_blank" class="project-link">↗</a>
+                    <span class="project-type">Open Source</span>
+                    <h3 class="project-title">Giraffa</h3>
+                    <p class="project-desc">
+                        Committer on Giraffa — a distributed, highly available file system built on top of HBase.
+                        Designed for massive scale with strong consistency guarantees.
+                    </p>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Built On</span>
+                            <span class="meta-value">HBase</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Language</span>
+                            <span class="meta-value">Java</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in stagger-3">
                     <span class="project-type">Patent</span>
                     <h3 class="project-title">Distributed Network Monitoring</h3>
                     <p class="project-desc">
                         US Patent for "Monitoring of Authorization-Exceeding Activity in Distributed Networks" —
-                        a system for detecting and responding to anomalous behavior patterns across distributed infrastructure.
+                        detecting anomalous behavior patterns across distributed infrastructure.
                     </p>
                     <div class="project-meta">
                         <div class="meta-item">
@@ -1059,6 +1527,21 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="project-card fade-in stagger-4">
+                    <span class="project-type">Patent</span>
+                    <h3 class="project-title">Forex Broker Evaluation</h3>
+                    <p class="project-desc">
+                        US Patent Application for "Effective Evaluation of Forex Brokers" —
+                        a system for analyzing and rating foreign exchange brokers based on performance metrics.
+                    </p>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Patent №</span>
+                            <span class="meta-value">US20160292786</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1066,7 +1549,7 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="section-number">05</span>
+                <span class="section-number">07</span>
                 <h2 class="section-title">Contact</h2>
                 <div class="section-line"></div>
             </div>
@@ -1185,6 +1668,49 @@
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
+
+        // Testimonials scroll buttons
+        (function() {
+            const grid = document.getElementById('testimonialsGrid');
+            const leftBtn = document.getElementById('scrollLeft');
+            const rightBtn = document.getElementById('scrollRight');
+
+            if (!grid || !leftBtn || !rightBtn) return;
+
+            const getScrollAmount = () => {
+                const card = grid.querySelector('.testimonial-card');
+                return card ? card.offsetWidth + 32 : 400;
+            };
+
+            const updateButtons = () => {
+                const maxScroll = grid.scrollWidth - grid.clientWidth;
+                const canScrollLeft = grid.scrollLeft > 5;
+                const canScrollRight = grid.scrollLeft < maxScroll - 5;
+
+                leftBtn.style.opacity = canScrollLeft ? '1' : '0.3';
+                leftBtn.style.cursor = canScrollLeft ? 'pointer' : 'default';
+                rightBtn.style.opacity = canScrollRight ? '1' : '0.3';
+                rightBtn.style.cursor = canScrollRight ? 'pointer' : 'default';
+            };
+
+            leftBtn.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                grid.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+            };
+
+            rightBtn.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                grid.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+            };
+
+            grid.addEventListener('scroll', updateButtons);
+            window.addEventListener('resize', updateButtons);
+
+            // Initial update after a short delay to ensure layout is complete
+            setTimeout(updateButtons, 100);
+        })();
 
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
